@@ -1,0 +1,14 @@
+.product-list{
+    display: flex;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+.card{
+    border: 1px solid #e5e5e5;
+    float: left;
+    width: 33.33%;
+    margin: 20px;
+    text-align: center;
+    padding: 20px;
+}
