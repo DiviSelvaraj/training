@@ -1,8 +1,10 @@
 import React from 'react';
-import './App.css';
 import Product from './Product-Listing/Product';
 import './Product-Listing/Product.css';
 import Todo from './Todo/Todo';
+import './Todo/Todo.css';
+
+
 
 
 class App extends React.Component{
@@ -11,6 +13,7 @@ render(){
     <div>
       <Product/>
       <Todo />
+      
     </div>
     
    

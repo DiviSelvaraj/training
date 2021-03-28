@@ -1,22 +1,11 @@
 import React, {Component} from 'react';
 
 class Todo extends Component{
-    constructor(props){
-        super(props);
-        this.state = {
+
+        state = {
           newList: '',
           list: [],
-          search: ''
-    
-        }
-      }
-    
-    inputChange(val){
-      this.setState({
-        newList: val,
-      })
     }
-    
     // adding list item
     addList(addVal) {
       if(addVal !== '' ){
@@ -25,12 +14,9 @@ class Todo extends Component{
           value : this.state.newList
         };
     
-        const list = [...this.state.list]; // spread operator used here for spliting the items
-        // console.log(list);
-        list.push(newList);// we are adding the new items to an array
-        // console.log(list);
-    
-        // reseting the state here
+        const list = [...this.state.list]; 
+        list.push(newList);
+
         this.setState({
           list,
           newList:""
@@ -53,13 +39,21 @@ class Todo extends Component{
     render(){
         return(
           <div className="todo-list-wrapper">
+            <h2>ToDo</h2>
             <div className="todo-input">
-            <input type="text" value= {this.state.newList} onChange = { e => this.inputChange(e.target.value)}/>
+              
+            <input type="text" value= {this.state.newList} onChange = { e => {
+              this.setState({
+                newList: e.target.value
+              })
+            }}/>
             <button onClick = { () => this.addList(this.state.newList)}>TO DO</button>
             </div>
             <div className= "todo-list">
                 <ul>
-                        {this.state.list.map(listItem => {return(
+                        {this.state.list.map(listItem => {
+                           if (listItem.value.includes(this.state.newList))
+                          return(
                           console.log(listItem),
                                   <li key = {listItem.id}>{listItem.value} 
                                   <div>
